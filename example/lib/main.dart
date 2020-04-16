@@ -1,8 +1,3 @@
-# example
-
-## Demo code
-
-```
 import 'package:flutter/material.dart';
 import 'package:validation_extensions/validation_extensions.dart';
 
@@ -125,4 +120,3 @@ class _DemoFormState extends State<DemoForm> {
     );
   }
 }
-```
