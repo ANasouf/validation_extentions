@@ -13,12 +13,14 @@ void main() {
   test('Minimum string length', () {
     final testString = "testString";
     expect(testString.minLength(5)(), null);
+    expect("".minLength(5)(), null);
     expect(testString.minLength(11, errorText: "errorText message")(),
         "errorText message");
   });
   test('Maximum string length', () {
     final testString = "testString";
     expect(testString.maxLength(11, errorText: "errorText message")(), null);
+    expect("".maxLength(11, errorText: "errorText message")(), null);
     expect(testString.maxLength(5, errorText: "errorText message")(),
         "errorText message");
   });
@@ -26,6 +28,7 @@ void main() {
     final testString = "testString";
     expect(
         testString.lengthRange(3, 15, errorText: "errorText message")(), null);
+    expect("".lengthRange(3, 15, errorText: "errorText message")(), null);
     expect(testString.lengthRange(11, 20, errorText: "errorText message")(),
         "errorText message");
     expect(testString.lengthRange(1, 5, errorText: "errorText message")(),
@@ -35,6 +38,8 @@ void main() {
     final testString = "testString";
     expect(
         testString.match("testString", errorText: "errorText message")(), null);
+    expect(
+        "".match("testString", errorText: "errorText message")(), null);
     expect(testString.match("", errorText: "errorText message")(),
         "errorText message");
     expect(testString.match("TestString", errorText: "errorText message")(),
@@ -49,6 +54,8 @@ void main() {
     expect(testString.matchPattern("^test", errorText: "errorText message")(),
         null);
     expect(
+        "".matchPattern(".*", errorText: "errorText message")(), null);
+    expect(
         testString.matchPattern(".*", errorText: "errorText message")(), null);
     expect(
         testString.matchPattern("g\$", errorText: "errorText message")(), null);
@@ -57,6 +64,7 @@ void main() {
         "errorText message");
   });
   test('Input is an integer', () {
+    expect("".isInt(errorText: "errorText message")(), null);
     expect("0".isInt(errorText: "errorText message")(), null);
     expect("5".isInt(errorText: "errorText message")(), null);
     expect("-5".isInt(errorText: "errorText message")(), null);
@@ -74,6 +82,7 @@ void main() {
         "errorText message");
   });
   test('Input is double', () {
+    expect("".isDouble(errorText: "errorText message")(), null);
     expect("0".isDouble(errorText: "errorText message")(), null);
     expect("5".isDouble(errorText: "errorText message")(), null);
     expect("-5".isDouble(errorText: "errorText message")(), null);
@@ -93,21 +102,22 @@ void main() {
   test('Minimum input number', () {
     expect("0".min(0, errorText: "errorText message")(), null);
     expect("11".min(10, errorText: "errorText message")(), null);
+    expect("".min(10, errorText: "errorText message")(), null);
     expect("2".min(3, errorText: "errorText message")(), "errorText message");
-    expect("".min(10, errorText: "errorText message")(), "errorText message");
     expect("double".min(10, errorText: "errorText message")(),
         "errorText message");
   });
   test('Maximum input number', () {
     expect("0".max(0, errorText: "errorText message")(), null);
     expect("2".max(3, errorText: "errorText message")(), null);
+    expect("".max(10, errorText: "errorText message")(), null);
     expect("3.5".max(3, errorText: "errorText message")(), "errorText message");
     expect("11".max(10, errorText: "errorText message")(), "errorText message");
-    expect("".max(10, errorText: "errorText message")(), "errorText message");
     expect("double".max(10, errorText: "errorText message")(),
         "errorText message");
   });
   test('Email verification', () {
+    expect("".isEmail(errorText: "errorText message")(), null);
     expect("abc@gmail.com".isEmail(errorText: "errorText message")(), null);
     expect("12@cd.io".isEmail(errorText: "errorText message")(), null);
     expect(
@@ -121,9 +131,19 @@ void main() {
 
   test('Multivalidation', () {
     String testString = "testString";
-    expect([testString.isRequired(),testString.minLength(5)].validate(), null);
+    expect([testString.isRequired(), testString.minLength(5)].validate(), null);
     // Both String invalid only first will excute better for performance
-    expect(["".isRequired(errorText: "First error"),"".minLength(5, errorText: "Second error")].validate(), "First error");
-    expect(["required".isRequired(errorText: "First error"),"".minLength(5, errorText: "Second error")].validate(), "Second error");
+    expect(
+        [
+          "".isRequired(errorText: "First error"),
+          "".minLength(5, errorText: "Second error")
+        ].validate(),
+        "First error");
+    expect(
+        [
+          "required".isRequired(errorText: "First error"),
+          "test".minLength(5, errorText: "Second error")
+        ].validate(),
+        "Second error");
   });
 }
