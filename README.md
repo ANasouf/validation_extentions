@@ -7,7 +7,7 @@ Flutter form field validations using dart extension methods.
 
 ### String extension methods
 
-Check tests file for examples on how to use them.
+Check tests file for examples on how to use them or the example app.
 
 
 |Method|Parameters | Description |
@@ -25,6 +25,9 @@ Check tests file for examples on how to use them.
 | max | `int max` | Validates if the string is a valid double smaller than max |
 | range | `int min`, `int max` | Validates if the string is a valid double between min and max |
 
+**Note**  
+
+You have to use isRequired to make a field mandatory, all other extension methods won't validate empty string, and will validate only if string is not empty which will make the field optional.
 
 ### List\<Function> extension methods
 
