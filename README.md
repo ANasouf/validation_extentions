@@ -2,30 +2,34 @@
 # validation_extensions
 
 Flutter form field validations using dart extension methods.
+
 ## Available validation extension methods
 
 ### String extension methods
 
 Check tests file for examples on how to use them.
+
+
 |Method|Parameters | Description |
-|--|--|--|
-| isRequired | None| Validates if the string in not empty|
-| isEmail | None |Validates if the string is a valid email address|
-| minLength | int min |Validates if the string length is longer than min|
-| maxLength | int max |Validates if the string length is shorter than max|
-| lengthRange | int min, int max |Validates if the string length is longer than min and shorter than max|
-| match | String stringToMatch |Validates if the string is an exact match of the String stringToMatch parameter that you provide|
-| matchPattern | String regExp |Validates if the string matches the regular expression regExp parameter that you provide|
-| isInt | None |Validates if the string is a valid integer|
-| isDouble |None  |Validates if the string is a valid double|
-| min | int min |Validates if the string is a valid double bigger than min|
-| max | int max |Validates if the string is a valid double smaller than max|
-| range | int min, int max |Validates if the string is a valid double between min and max|
+|------|-----------|-------------|
+| isRequired | `None`| Validates if the string in not empty |
+| isEmail | `None` | Validates if the string is a valid email address |
+| minLength | `int min` | Validates if the string length is longer than min |
+| maxLength | `int max` | Validates if the string length is shorter than max |
+| lengthRange | `int min`, `int max` | Validates if the string length is longer than min and shorter than max|
+| match | `String stringToMatch` | Validates if the string is an exact match of the String stringToMatch parameter that you provide |
+| matchPattern | `String regExp` | Validates if the string matches the regular expression regExp parameter that you provide |
+| isInt | `None` | Validates if the string is a valid integer |
+| isDouble |`None`  | Validates if the string is a valid double |
+| min | `int min` | Validates if the string is a valid double bigger than min |
+| max | `int max` | Validates if the string is a valid double smaller than max |
+| range | `int min`, `int max` | Validates if the string is a valid double between min and max |
+
 
 ### List\<Function> extension methods
 
 |Method| Description |
-|--|--|
+|------|-------------|
 | validate | execute validation functions one by one, will stop execution when it encounter a validation error and return the errorText  |
 
 ## Usage
