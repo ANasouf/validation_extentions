@@ -3,7 +3,7 @@ description: Flutter form field validations using dart extension methods.
 version: 1.0.0
 author:
   - Abdulraouf Nasouf <a.m.nasouf@gmail.com>
-homepage:
+homepage: https://github.com/ANasouf/validation_extentions
 
 environment:
   sdk: ">=2.6.0 <3.0.0"
